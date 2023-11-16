@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Information Result</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        font-size: 2em;
+        color: #007bff;
+        margin-bottom: 20px;
+      }
+
+      pre {
+        color: white;
+        font-family: "Courier New", monospace;
+        white-space: pre-wrap;
+      }
+
+      p {
+        margin-top: 30px;
+        font-size: 1.1em;
+      }
+
+      div {
+        padding: 10px;
+        background-color: #007bff;
+        border-radius: 10px;
+      }
+
+      a {
+        color: #0077cc;
+        font-style: italic;
+        text-decoration: none;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>User Information Result</h1>
+    <div>
+      <pre>{{ ascii_art|safe }}</pre>
+    </div>
+    <p>
+      Hello <strong>{{name}}</strong> born in {{age}} from
+      <a
+        href="https://www.google.com/search?q={{address}}&oq={{address}}&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxjjAhiKBTIMCAAQIxgnGOMCGIoFMgkIARAuGCcYigUyDwgCEAAYFBiHAhixAxiABDIMCAMQLhhDGLEDGIoFMg0IBBAuGIMBGLEDGIAEMgoIBRAAGLEDGIAEMgoIBhAAGLEDGIAEMg0IBxAAGIMBGLEDGIAEMgwICBAAGBQYhwIYgAQyBwgJEAAYgASoAgCwAgA&sourceid=chrome&ie=UTF-8"
+        >{{address}}</a
+      >
+    </p>
+  </body>
+</html>

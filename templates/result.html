@@ -4,19 +4,164 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Information Result</title>
-    <link rel="stylesheet" href="./result.css" />
+    <style>
+      /* result.css */
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: rgb(14, 14, 14);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        text-transform: uppercase;
+      }
+
+      .art {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      pre {
+        color: white;
+        font-family: "Courier New", monospace;
+        white-space: pre-wrap;
+        overflow: hidden;
+      }
+
+      p {
+        text-align: center;
+        color: #555;
+      }
+
+      a {
+        color: #4285f4;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: #1967d2;
+      }
+
+      h1 {
+        animation: fadeInUp 1s ease;
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+      }
+
+      pre {
+        animation: bounceIn 1s ease;
+      }
+
+      p {
+        text-align: center;
+        color: #555;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 2s steps(40, end);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounceIn {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      pre {
+        animation: typing 3s steps(40, end);
+      }
+
+      p {
+        animation: typing 7s steps(40, end);
+      }
+
+      h1:before {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        content: attr(data-text);
+        position: absolute;
+        color: red;
+        animation: changeColor 2s infinite;
+      }
+
+      @keyframes changeColor {
+        0%,
+        100% {
+          color: red;
+        }
+        50% {
+          color: green;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>User Information Result</h1>
     <div>
-      <pre>{{ ascii_art|safe }}</pre>
+      <div class="birds">
+        <div class="bird"></div>
+        <div class="bird"></div>
+        <div class="bird"></div>
+      </div>
+      <h1 data-text="User Information Result">User Information Result</h1>
+      <div class="art">
+        <pre>{{ ascii_art|safe }}</pre>
+      </div>
+      <p>
+        Hello <strong>{{name}}</strong>, born in {{age}} from
+        <a
+          href="https://www.google.com/search?q={{address}}&oq={{address}}&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxjjAhiKBTIMCAAQIxgnGOMCGIoFMgkIARAuGCcYigUyDwgCEAAYFBiHAhixAxiABDIMCAMQLhhDGLEDGIoFMg0IBBAuGIMBGLEDGIAEMgoIBRAAGLEDGIAEMgoIBhAAGLEDGIAEMg0IBxAAGIMBGLEDGIAEMgwICBAAGBQYhwIYgAQyBwgJEAAYgASoAgCwAgA&sourceid=chrome&ie=UTF-8"
+          >{{address}}</a
+        >
+      </p>
     </div>
-    <p>
-      Hello <strong>{{name}}</strong> born in {{age}} from
-      <a
-        href="https://www.google.com/search?q={{address}}&oq={{address}}&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxjjAhiKBTIMCAAQIxgnGOMCGIoFMgkIARAuGCcYigUyDwgCEAAYFBiHAhixAxiABDIMCAMQLhhDGLEDGIoFMg0IBBAuGIMBGLEDGIAEMgoIBRAAGLEDGIAEMgoIBhAAGLEDGIAEMg0IBxAAGIMBGLEDGIAEMgwICBAAGBQYhwIYgAQyBwgJEAAYgASoAgCwAgA&sourceid=chrome&ie=UTF-8"
-        >{{address}}</a
-      >
-    </p>
   </body>
 </html>
